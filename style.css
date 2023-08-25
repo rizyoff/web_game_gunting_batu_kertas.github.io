@@ -1,0 +1,331 @@
+/* style font */
+@import url("https://fonts.googleapis.com/css2?family=Barlow+Semi+Condensed:wght@600;700&display=swap");
+
+/* variable */
+:root {
+  --font-putih: white;
+  --font-hitam: hsl(229, 25%, 31%);
+  --tulisan-score: hsl(229, 64%, 46%);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  text-transform: uppercase;
+}
+
+body {
+  font-family: "Barlow Semi Condensed", sans-serif;
+  background: linear-gradient(
+    to right top,
+    #000000,
+    #2d2b2c,
+    #312a30,
+    #251d29,
+    #120e23
+  );
+  min-height: 100vh;
+  color: var(--font-putih);
+}
+/* style main start */
+.container_intro {
+  position: relative;
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 2rem;
+}
+
+.intro {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border: 2px solid rgb(144, 136, 136);
+  height: 150px;
+  padding: 1rem 1rem;
+  border-radius: 20px;
+}
+
+.score {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: #fff;
+  color: var(--font-hitam);
+  width: 150px;
+  height: 100%;
+  border-radius: 20px;
+  line-height: 1;
+}
+
+.score_text {
+  font-size: 1rem;
+  letter-spacing: 2px;
+}
+
+.score_total {
+  font-size: 4rem;
+  font-weight: 700;
+}
+
+/* game styleling */
+
+.game {
+  position: relative;
+  display: grid;
+  grid-template-columns: (repeat(2, 1fr));
+  grid-template-areas:
+    "paper scissors"
+    "rock rock";
+  place-items: center;
+  height: 30rem;
+  padding-top: 4rem;
+}
+/* memberikan segitiga pada background tombol */
+.game::before {
+  content: "";
+  position: absolute;
+  width: 70%;
+  height: 50%;
+  background: url(./assets/bg-triangle.svg) no-repeat;
+  left: 30%;
+  top: 35%;
+  z-index: -1;
+}
+/* penempatan setiap btn */
+.choice-btn[data-choice="paper"] {
+  grid-area: paper;
+}
+.choice-btn[data-choice="scissors"] {
+  grid-area: scissors;
+}
+.choice-btn[data-choice="rock"] {
+  grid-area: rock;
+}
+
+.choice-btn {
+  border: none;
+  outline: none;
+  background: none;
+  cursor: pointer;
+}
+
+.choice {
+  position: relative;
+  width: 10rem;
+  height: 10rem;
+  background: #fff;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+}
+/* styling untuk membuat cincin */
+.choice::before,
+.choice::after {
+  content: "";
+  position: absolute;
+  left: -15%;
+  top: -15%;
+  width: 130%;
+  height: 130%;
+  border-radius: 50%;
+  z-index: -1;
+}
+.choice::after {
+  opacity: 0;
+  transition: opacity 0.5s ease;
+}
+
+.choice-btn:focus .choice::after {
+  opacity: 1;
+  box-shadow: 0 0 0 2rem #2233518f;
+}
+.paper::before {
+  background: linear-gradient(to bottom, hsl(39, 89%, 49%), hsl(39, 48%, 30%));
+}
+.scissors::before {
+  background: linear-gradient(
+    to bottom,
+    hsl(330, 100%, 50%),
+    hsl(336, 82%, 39%)
+  );
+}
+.rock::before {
+  background: linear-gradient(
+    to bottom,
+    hsl(242, 89%, 49%),
+    hsl(201, 48%, 30%)
+  );
+}
+
+/* styling hasil akhir */
+.results {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  place-items: center;
+  grid-template-areas:
+    "pengguna-title ai-title"
+    "choice-pemain choice-ai";
+  margin: 0 auto;
+}
+
+.hasil_text:first-of-type {
+  grid-area: pengguna-title;
+}
+.hasil_text:last-of-type {
+  grid-area: ai-title;
+}
+.results__result:first-of-type {
+  grid-area: choice-pemain;
+}
+.results__result:last-of-type {
+  grid-area: choice-ai;
+}
+
+.hasil_text {
+  font-size: 1.2rem;
+  letter-spacing: 0.1rem;
+  padding: 3rem 0 8rem;
+}
+
+.results__result {
+  min-width: 10rem;
+  min-height: 10rem;
+  background: #a4a8b254;
+  border-radius: 50%;
+  transform: scale(1.4);
+  z-index: -1;
+}
+
+.results.show-winner {
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-areas:
+    "pengguna-title . ai-title"
+    "choice-pemain results_winner choice-ai";
+}
+
+
+
+.results_winner {
+  grid-area: results_winner;
+  display: grid;
+  place-items: center;
+}
+
+.results_text {
+  font-size: 3rem;
+  padding-bottom: 1.5rem;
+}
+
+/* mennyembunyikan hasil akhir */
+.hidden{
+  display: none;
+}
+
+/* tombol play again */
+.play-again-btn{
+  background: white;
+  outline: none;
+  border: 2px solid transparent;
+  border-radius: 1rem;
+  color: var(--font-hitam);
+  padding: 0.5rem 3.5rem;
+  font-family: inherit;
+  text-transform: inherit;
+  font-size: 1.3rem;
+  letter-spacing: 0.1rem;
+  cursor: pointer;
+}
+
+.play-again-btn:hover{
+  background-color: rgb(46, 46, 171);
+  color: white;
+  transition: all 0.5s;
+}
+
+/* tombol peraturan */
+.tombol-peraturan {
+  position: absolute;
+  bottom: 0.5rem;
+  right: 0.5rem;
+  background: none;
+  outline: none;
+  border: 2px solid silver;
+  cursor: pointer;
+  padding: 1rem 2rem;
+  border-radius: 1rem;
+  color: var(--font-putih);
+  font-size: 1rem;
+  font-family: inherit;
+  letter-spacing: 0.1rem;
+}
+
+.tombol-peraturan:focus {
+  background-color: #fff;
+  color: #0f1b2f;
+}
+
+/* styling isi peraturan  */
+.peraturan {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  top: 0;
+  left: 0;
+  display: grid;
+  place-items: center;
+  background: rgba(0, 0, 0, 0.63);
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
+  pointer-events: none;
+}
+
+.container_peraturan {
+  background-color: white;
+  border-radius: 0.6rem;
+  padding: 2rem;
+  color: #0f1b2f;
+}
+
+.header-peraturan {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  padding-bottom: 3rem;
+}
+
+.tombol_close_peraturan {
+  border: none;
+  outline: none;
+  background: none;
+  cursor: pointer;
+}
+
+.container_peraturan ol {
+  padding-left: 1rem;
+}
+
+.tampilkan_cara {
+  opacity: 1;
+  pointer-events: initial;
+}
+/* footer styling */
+.footer {
+  position: absolute;
+  width: 100%;
+  padding: 0 2rem;
+  text-align: center;
+}
+
+.footer_content {
+  font-size: 14px;
+
+}
+
+.footer_content a{
+  padding: 0 1rem;
+}
+
+
+

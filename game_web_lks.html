@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="GUNTING BATU KERTAS"
+      content="width=device-width, initial-scale=1.0"
+    />
+    <title>GUNTING BATU KERTAS</title>
+    <link rel="icon" href="./assets/IMG-20220412-WA0071-removebg-preview.png" />
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  </head>
+  <body>
+    <div class="container_intro">
+      <header class="intro">
+        <h1>
+          permainan <br />
+          gunting batu <br />
+          kertas
+        </h1>
+        <div class="score">
+          <div class="score_text">SCORE</div>
+          <div class="score_total">0</div>
+        </div>
+      </header>
+      <section class="game">
+        <button class="choice-btn" data-choice="paper">
+          <div class="choice paper">
+            <img src="./assets/icon-paper.svg" alt="Paper" />
+          </div>
+        </button>
+        <button class="choice-btn" data-choice="scissors">
+          <div class="choice scissors">
+            <img src="./assets/icon-scissors.svg" alt="Scissors" />
+          </div>
+        </button>
+        <button class="choice-btn" data-choice="rock">
+          <div class="choice rock">
+            <img src="./assets/icon-rock.svg" alt="Rock" />
+          </div>
+        </button>
+      </section>
+    </div>
+
+    <section class="results hidden">
+      <h2 class="hasil_text">pilihan mu</h2>
+      <h2 class="hasil_text">pilihan bot</h2>
+      <div class="results__result"></div>
+      <div class="results_winner hidden">
+        <h3 class="results_text">scscs</h3>
+        <button class="play-again-btn">Play Again</button>
+      </div>
+      <div class="results__result"></div>
+    </section>
+
+    <button class="tombol-peraturan" tabindex="1">CARA BERMAIN</button>
+    <div class="peraturan">
+      <div class="container_peraturan">
+        <header class="header-peraturan">
+          <h2 class="text_header">CARA BERMAIN</h2>
+          <button class="tombol_close_peraturan">
+            <img src="./assets/icon-close.svg" alt="tombol-keluar" />
+          </button>
+        </header>
+        <img src="./assets/image-rules.svg" alt="gambar-peraturan" />
+        <p>CARA BERMAIN :</p>
+        <ol type="1">
+          <li>pilih salah satu antara batu,gunting,kertas</li>
+          <li>tungu sampai ai mengeluarkan hasil</li>
+          <li>dan bisa dilihat apakah menang atau kalah <br> selamat bermainn!!!!</li>
+        </ol>
+      </div>
+    </div>
+
+    <footer class="footer">
+      <div class="footer_content">
+        <p>karya saya muhammad rizky <a href="https://github.com/rizyoff/rizyoff"><i class="fa-brands fa-github fa-2xl" style="color: #ffff;"></i></a></p>
+      
+      </div>
+    </footer>
+
+    <script src="main.js"></script>
+  </body>
+</html>
